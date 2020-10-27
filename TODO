@@ -1,0 +1,9 @@
+MAJOR:
+* Set position for current track
+* Playlists
+MINOR:
+DONE:
+* Audio player struct
+* Open audio file function
+* Play audio function
+* Pause audio function

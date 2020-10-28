@@ -2,6 +2,8 @@ MAJOR:
 * Set position for current track
 * Playlists
 MINOR:
+* Examples
+* Function for checking if player is playing audio
 DONE:
 * Audio player struct
 * Open audio file function

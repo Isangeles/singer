@@ -10,6 +10,10 @@ After that you can use [Meson](https://mesonbuild.com) to build the static libra
 $ meson build && cd build && ninja
 ```
 # Usage
+Initialize Singer:
+```
+singer_init(argc, argv);
+```
 Create audio player:
 ```
 Player *player = singer_create_player();

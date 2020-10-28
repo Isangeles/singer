@@ -33,6 +33,7 @@ typedef struct _Player {
     char *err;
 } Player;
 
+void singer_init(int argc, char **argv);
 Player *singer_create_player();
 void singer_close_player();
 void singer_set_track(Player *player, const char *path);

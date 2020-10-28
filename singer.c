@@ -29,13 +29,20 @@ static void pad_added_handler(GstElement *src, GstPad *pad, Player *player);
 void singer_listen(Player *player);
 void singer_background_listen(void *player);
 
+/* Initializes singer library. */
+void singer_init(int argc, char **argv)
+{
+    /* Init gstreamer */
+    gst_init(&argc, &argv);
+}
+
 /* Creates new audio player.
  * In case of an error, err variable in returned Player struct
  * is not null. */
 Player *singer_create_player()
 {
-    Player *player = &PLAYER_NEW;
     /* Create the elements */
+    Player *player = &PLAYER_NEW;
     player->source = gst_element_factory_make("uridecodebin", "source");
     player->convert = gst_element_factory_make("audioconvert", "convert");
     player->resample = gst_element_factory_make("audioresample", "resample");

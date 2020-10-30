@@ -47,5 +47,9 @@ flycheck_*.el
 # network security
 /network-security.data
 
+# mac
+.DS_Store
+
 # build dir
 /build/
+/example/build/

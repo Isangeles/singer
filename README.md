@@ -3,9 +3,9 @@ Singer is a simple, easy-to-use audio player library written in C on the top of 
 
 Currently in an early development stage.
 # Build
-First you need to install [GStreamer](https://gstreamer.freedesktop.org).
+First, you need to install [GStreamer](https://gstreamer.freedesktop.org).
 
-After that you can use [Meson](https://mesonbuild.com) to build the static library:
+After that, you can use [Meson](https://mesonbuild.com) to build the static library:
 ```
 $ meson build && cd build && ninja
 ```
@@ -52,6 +52,8 @@ Get current track lenght in milliseconds:
 gint64 len = singer_track_len(player);
 printf("Track lenght: %ldd\n", len);
 ```
+# Examples
+Check the `example` directory for an example project that uses the Singer library.
 # Contributing
 You are welcome to contribute to project development.
 

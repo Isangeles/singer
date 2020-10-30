@@ -122,19 +122,9 @@ void singer_listen(Player *player)
                 terminate = TRUE;
                 break;
             case GST_MESSAGE_EOS:
-                g_print("End-Of-Stream reached.\n");
                 terminate = TRUE;
                 break;
             case GST_MESSAGE_STATE_CHANGED:
-                /* We are only interested in state-changed messages from the pipeline */
-                if (GST_MESSAGE_SRC(msg) == GST_OBJECT(player->pipeline)) {
-                    GstState old_state, new_state, pending_state;
-                    gst_message_parse_state_changed(msg, &old_state, &new_state,
-                                                    &pending_state);
-                    g_print("Pipeline state changed from %s to %s:\n",
-                            gst_element_state_get_name(old_state),
-                            gst_element_state_get_name(new_state));
-                }
                 break;
             default:
                 /* We should not reach here */
@@ -208,9 +198,6 @@ static void pad_added_handler(GstElement *src, GstPad *new_pad,
     GstStructure *new_pad_struct = NULL;
     const gchar *new_pad_type = NULL;
 
-    g_print("Received new pad '%s' from '%s':\n", GST_PAD_NAME(new_pad),
-            GST_ELEMENT_NAME(src));
-
     /* If our converter is already linked, we have nothing to do here */
     if (gst_pad_is_linked(sink_pad)) {
         g_print("We are already linked. Ignoring.\n");
@@ -231,8 +218,6 @@ static void pad_added_handler(GstElement *src, GstPad *new_pad,
     ret = gst_pad_link(new_pad, sink_pad);
     if (GST_PAD_LINK_FAILED(ret)) {
         g_print("Type is '%s' but link failed.\n", new_pad_type);
-    } else {
-        g_print("Link succeeded (type '%s').\n", new_pad_type);
     }
 
 exit:

@@ -5,10 +5,13 @@ Currently in an early development stage.
 # Build
 First, you need to install [GStreamer](https://gstreamer.freedesktop.org).
 
-After that, you can use [Meson](https://mesonbuild.com) to build the static library:
+After that, you can use [Meson](https://mesonbuild.com) to build the library:
 ```
-$ meson build && cd build && ninja
+$ meson build -Ddefault_library=static && cd build && ninja
 ```
+This command builds a static library.
+
+If you want to build a shared library or both shared and static, change `-Ddefualt_library` argument to `shared` or `both`.
 # Usage
 Initialize Singer:
 ```

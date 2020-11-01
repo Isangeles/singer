@@ -21,9 +21,11 @@
 
 #include "singer.h"
 #include <stdio.h>
+#include <pthread.h>
 
-static struct _Player PLAYER_NEW = {.pipeline = NULL, .source = NULL, .convert = NULL, 
-									.resample = NULL, .sink = NULL, .err = "Not initialized"};
+static struct _Player PLAYER_NEW = {.pipeline = NULL, .source = NULL, .convert = NULL,
+           .resample = NULL, .sink = NULL, .err = "Not initialized"
+};
 /* Handler for the pad-added signal. */
 static void pad_added_handler(GstElement *src, GstPad *pad, Player *player);
 void singer_listen(Player *player);

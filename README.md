@@ -12,6 +12,8 @@ $ meson build -Ddefault_library=static && cd build && ninja
 This command builds a static library.
 
 If you want to build a shared library or both shared and static, change `-Ddefualt_library` argument to `shared` or `both`.
+
+The Meson build also generates a pkg-config file(.pc) that can be found in the `meson-private` sub-directory of the build directory.
 # Usage
 Initialize Singer:
 ```

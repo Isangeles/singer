@@ -21,7 +21,7 @@
 
 #include <stdio.h>
 #include <unistd.h>
-#include <singer/singer.h>
+#include <singer.h>
 
 const char *PATH_SEPARATOR =
 #ifdef _WIN32

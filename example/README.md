@@ -1,9 +1,7 @@
 # Introduction
 This is an example project that uses the Singer library to play and control audio.
 # Build
-First, you need to install [GStreamer](https://gstreamer.freedesktop.org).
-
-Next, you need to build a Singer library and place it in the `singer` directory.
+First, you need to install [GStreamer](https://gstreamer.freedesktop.org) and [Singer](https://github.com/isangeles/singer) library.
 
 After that, you can use [Meson](https://mesonbuild.com) to build the project:
 ```

@@ -172,7 +172,7 @@ void singer_pause(Player *player)
     }
 }
 
-/* Returns player position in milliseconds for current track. */
+/* Returns player position in nanoseconds for current track. */
 gint64 singer_track_pos(Player *player)
 {
     gint64 pos;
@@ -181,7 +181,7 @@ gint64 singer_track_pos(Player *player)
     return pos;
 }
 
-/* Returns lenght in milliseconds for current track. */
+/* Returns lenght in nanoseconds for current track. */
 gint64 singer_track_len(Player *player)
 {
     gint64 len;

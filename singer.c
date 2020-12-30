@@ -172,6 +172,16 @@ void singer_pause(Player *player)
     }
 }
 
+/* Sets specified position in nanoseconds for current track. */
+void singer_track_set_pos(Player *player, gint64 pos)
+{
+    if (!gst_element_seek (player->pipeline, 1.0, GST_FORMAT_TIME,
+                           GST_SEEK_FLAG_FLUSH, GST_SEEK_TYPE_SET, pos,
+                           GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE)) {
+        player->err = "Unable to seek pipeline position";
+    }
+}
+
 /* Returns player position in nanoseconds for current track. */
 gint64 singer_track_pos(Player *player)
 {

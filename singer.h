@@ -39,6 +39,7 @@ void singer_close_player();
 void singer_set_track(Player *player, const char *path);
 void singer_play(Player *player);
 void singer_pause(Player *player);
+void singer_track_set_pos(Player *player, gint64 pos);
 gint64 singer_track_pos(Player *player);
 gint64 singer_track_len(Player *player);
 #endif

@@ -47,15 +47,22 @@ if (player->err != NULL) {
 	printf("Unable to pause audio: %s\n", player->err);
 }
 ```
-Get current track position in milliseconds:
+Get current track position in nanoseconds:
 ```
 gint64 pos = singer_track_pos(player);
 printf("Track position: %ldd\n", pos);
 ```
-Get current track lenght in milliseconds:
+Get current track lenght in nanoseconds:
 ```
 gint64 len = singer_track_len(player);
 printf("Track lenght: %ldd\n", len);
+```
+Set current track position in nanoseconds:
+```
+singer_track_set_pos(player, 60000000000);
+if (player->err != NULL) {
+	printf("Unable to set track position: %s\n", player->err);
+}
 ```
 # Examples
 Check the `example` directory for an example project that uses the Singer library.

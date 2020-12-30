@@ -62,7 +62,7 @@ int main(int argc, char **argv)
     /* Control audio */
     while(1) {
         system("clear");
-        printf("p - Pause, r - Resume, q - Quit\n");
+        printf("p - Pause, r - Resume, q - Quit, f - Forward 1 sec., b - Backward 1 sec.\n");
         char input;
         scanf("%c", &input);
         if (input == 'p') {
@@ -73,6 +73,14 @@ int main(int argc, char **argv)
             singer_play(player);
             if (player->err != NULL)
                 fprintf(stderr, "Unable to play audio: %s\n", player->err);
+        } else if (input == 'f') {
+            singer_track_set_pos(player, singer_track_pos(player) + 60000000000);
+            if (player->err != NULL)
+                fprintf(stderr, "Unable to set track position: %s\n", player->err);
+        } else if (input == 'b') {
+            singer_track_set_pos(player, singer_track_pos(player) - 60000000000);
+            if (player->err != NULL)
+                fprintf(stderr, "Unable to set track position: %s\n", player->err);
         } else if (input == 'q')
             break;
     }

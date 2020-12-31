@@ -1,7 +1,5 @@
 # Introduction
 Singer is a simple, easy-to-use audio player library written in C on the top of GStreamer. 
-
-Currently in an early development stage.
 # Build
 First, you need to install [GStreamer](https://gstreamer.freedesktop.org).
 

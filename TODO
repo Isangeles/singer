@@ -1,5 +1,4 @@
 MAJOR:
-* Set position for current track
 * Playlists
 MINOR:
 * Function for checking if player is playing audio
@@ -8,3 +7,4 @@ DONE:
 * Open audio file function
 * Play audio function
 * Pause audio function
+* Set position for current track

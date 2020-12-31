@@ -62,7 +62,7 @@ int main(int argc, char **argv)
     /* Control audio */
     while(1) {
         system("clear");
-        printf("p - Pause, r - Resume, q - Quit, f - Forward 1 sec., b - Backward 1 sec.\n");
+        printf("p - Pause, r - Resume, q - Quit, f - Forward 1 min., b - Backward 1 min.\n");
         char input;
         scanf("%c", &input);
         if (input == 'p') {

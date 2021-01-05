@@ -67,20 +67,28 @@ int main(int argc, char **argv)
         scanf("%c", &input);
         if (input == 'p') {
             singer_pause(player);
-            if (player->err != NULL)
+            if (player->err != NULL) {
                 fprintf(stderr, "Unable to pause audio: %s\n", player->err);
+                player->err = NULL;
+            }
         } else if (input == 'r') {
             singer_play(player);
-            if (player->err != NULL)
+            if (player->err != NULL) {
                 fprintf(stderr, "Unable to play audio: %s\n", player->err);
+                player->err = NULL;
+            }
         } else if (input == 'f') {
             singer_track_set_pos(player, singer_track_pos(player) + 60000000000);
-            if (player->err != NULL)
+            if (player->err != NULL) {
                 fprintf(stderr, "Unable to set track position: %s\n", player->err);
+                player->err = NULL;
+            }
         } else if (input == 'b') {
             singer_track_set_pos(player, singer_track_pos(player) - 60000000000);
-            if (player->err != NULL)
+            if (player->err != NULL) {
                 fprintf(stderr, "Unable to set track position: %s\n", player->err);
+                player->err = NULL;
+            }
         } else if (input == 'q')
             break;
     }

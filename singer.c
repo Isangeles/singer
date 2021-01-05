@@ -187,7 +187,7 @@ gint64 singer_track_pos(Player *player)
 {
     gint64 pos;
     if (!gst_element_query_position(player->pipeline, GST_FORMAT_TIME, &pos))
-        pos = 0;
+        player->err = "Unable to query pipeline position";
     return pos;
 }
 
@@ -196,7 +196,7 @@ gint64 singer_track_len(Player *player)
 {
     gint64 len;
     if (!gst_element_query_duration(player->pipeline, GST_FORMAT_TIME, &len))
-        len = 0;
+        player->err = "Unable to query pipeline duration";
     return len;
 }
 

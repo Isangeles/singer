@@ -22,6 +22,7 @@ Create audio player:
 Player *player = singer_create_player();
 if (player->err != NULL) {
 	printf("Unable to create player: %s\n", player->err);
+    player->err = NULL;
 }
 ```
 Set audio file:
@@ -29,6 +30,7 @@ Set audio file:
 singer_set_track(player, "/path/to/audio/file.ogg");
 if (player->err != NULL) {
 	printf("Unable to set audio track: %s\n", player->err);
+    player->err = NULL;
 }
 ```
 Play audio:
@@ -36,6 +38,7 @@ Play audio:
 singer_play(player);
 if (player->err != NULL) {
 	printf("Unable to play audio: %s\n", player->err);
+    player->err = NULL;
 }
 ```
 Pause audio:
@@ -43,16 +46,25 @@ Pause audio:
 singer_pause(player);
 if (player->err != NULL) {
 	printf("Unable to pause audio: %s\n", player->err);
+    player->err = NULL;
 }
 ```
 Get current track position in nanoseconds:
 ```
 gint64 pos = singer_track_pos(player);
+if (player->err != NULL) {
+    printf("Unable to get track position: %s\n", player->err);
+    player->err = NULL;
+}
 printf("Track position: %ldd\n", pos);
 ```
 Get current track lenght in nanoseconds:
 ```
 gint64 len = singer_track_len(player);
+if (player->err != NULL) {
+    printf("Unable to get track length: %s\n", player-err);
+    player->err = NULL;
+}
 printf("Track lenght: %ldd\n", len);
 ```
 Set current track position in nanoseconds:
@@ -60,6 +72,7 @@ Set current track position in nanoseconds:
 singer_track_set_pos(player, 60000000000);
 if (player->err != NULL) {
 	printf("Unable to set track position: %s\n", player->err);
+    player->err = NULL;
 }
 ```
 # Examples

@@ -59,7 +59,7 @@ if (singer_playing(player)) {
 ```
 Get current track position in nanoseconds:
 ```
-gint64 pos = singer_track_pos(player);
+long pos = singer_track_pos(player);
 if (player->err != NULL) {
     printf("Unable to get track position: %s\n", player->err);
     player->err = NULL;
@@ -68,7 +68,7 @@ printf("Track position: %ldd\n", pos);
 ```
 Get current track lenght in nanoseconds:
 ```
-gint64 len = singer_track_len(player);
+long len = singer_track_len(player);
 if (player->err != NULL) {
     printf("Unable to get track length: %s\n", player-err);
     player->err = NULL;

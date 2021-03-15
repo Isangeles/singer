@@ -173,31 +173,31 @@ void singer_pause(Player *player)
 }
 
 /* Sets specified position in nanoseconds for current track. */
-void singer_track_set_pos(Player *player, gint64 pos)
+void singer_track_set_pos(Player *player, long pos)
 {
     if (!gst_element_seek (player->pipeline, 1.0, GST_FORMAT_TIME,
-                           GST_SEEK_FLAG_FLUSH, GST_SEEK_TYPE_SET, pos,
+                           GST_SEEK_FLAG_FLUSH, GST_SEEK_TYPE_SET, (gint64)pos,
                            GST_SEEK_TYPE_NONE, GST_CLOCK_TIME_NONE)) {
         player->err = "Unable to seek pipeline position";
     }
 }
 
 /* Returns player position in nanoseconds for current track. */
-gint64 singer_track_pos(Player *player)
+long singer_track_pos(Player *player)
 {
     gint64 pos;
     if (!gst_element_query_position(player->pipeline, GST_FORMAT_TIME, &pos))
         player->err = "Unable to query pipeline position";
-    return pos;
+    return (long)pos;
 }
 
 /* Returns lenght in nanoseconds for current track. */
-gint64 singer_track_len(Player *player)
+long singer_track_len(Player *player)
 {
     gint64 len;
     if (!gst_element_query_duration(player->pipeline, GST_FORMAT_TIME, &len))
         player->err = "Unable to query pipeline duration";
-    return len;
+    return (long)len;
 }
 
 /* Chcecks if player is in playing state. */

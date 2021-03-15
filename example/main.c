@@ -1,7 +1,7 @@
 /*
  * main.c
  *
- * Copyright (C) 2020 Dariusz Sikora <dev@isangeles.pl>
+ * Copyright (C) 2020-2021 Dariusz Sikora <dev@isangeles.pl>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -62,6 +62,11 @@ int main(int argc, char **argv)
     /* Control audio */
     while(1) {
         system("clear");
+        if (singer_playing(player)) {
+            printf("Playing\n");
+        } else {
+            printf("Not playing\n");
+        }
         printf("p - Pause, r - Resume, q - Quit, f - Forward 1 min., b - Backward 1 min.\n");
         char input;
         scanf("%c", &input);

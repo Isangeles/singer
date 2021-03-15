@@ -51,6 +51,12 @@ if (player->err != NULL) {
     player->err = NULL;
 }
 ```
+Check if player is playing audio:
+```
+if (singer_playing(player)) {
+    printf("Player is playing");
+}
+```
 Get current track position in nanoseconds:
 ```
 gint64 pos = singer_track_pos(player);

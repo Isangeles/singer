@@ -1,7 +1,7 @@
 /*
  * singer.c
  *
- * Copyright (C) 2020 Dariusz Sikora <dev@isangeles.pl>
+ * Copyright (C) 2020-2021 Dariusz Sikora <dev@isangeles.pl>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -87,7 +87,7 @@ void singer_close_player(Player *player)
     gst_object_unref(player->pipeline);
 }
 
-/* Function for player listener background thread */
+/* Function for player listener background thread. */
 void singer_background_listen(void *player)
 {
     singer_listen(player);
@@ -154,7 +154,7 @@ void singer_set_track(Player *player, const char *path)
     g_object_set(player->source, "uri", uri, NULL);
 }
 
-/* Starts playing audio file from specified path */
+/* Starts playing audio file from specified path. */
 void singer_play(Player *player)
 {
     GstStateChangeReturn ret = gst_element_set_state(player->pipeline, GST_STATE_PLAYING);
@@ -198,6 +198,14 @@ gint64 singer_track_len(Player *player)
     if (!gst_element_query_duration(player->pipeline, GST_FORMAT_TIME, &len))
         player->err = "Unable to query pipeline duration";
     return len;
+}
+
+/* Chcecks if player is in playing state. */
+bool singer_playing(Player *player)
+{
+    GstState state;
+    gst_element_get_state(player->pipeline, &state, NULL, GST_CLOCK_TIME_NONE);
+    return state == GST_STATE_PLAYING;
 }
 
 /* This function will be called by the pad-added signal. */

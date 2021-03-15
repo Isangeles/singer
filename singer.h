@@ -1,7 +1,7 @@
 /*
  * singer.h
  *
- * Copyright (C) 2020 Dariusz Sikora <dev@isangeles.pl>
+ * Copyright (C) 2020-2021 Dariusz Sikora <dev@isangeles.pl>
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -22,6 +22,7 @@
 #ifndef PLAYER_H
 #define PLAYER_H
 #include <gst/gst.h>
+#include <stdbool.h>
 
 /* Structure for audio player. */
 typedef struct _Player {
@@ -42,4 +43,5 @@ void singer_pause(Player *player);
 void singer_track_set_pos(Player *player, gint64 pos);
 gint64 singer_track_pos(Player *player);
 gint64 singer_track_len(Player *player);
+bool singer_playing(Player *player);
 #endif

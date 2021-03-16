@@ -1,4 +1,4 @@
-project('singer', 'c')
+project('singer', 'c', version: '0.1.0')
 pkgconfig = import('pkgconfig')
 threads = dependency('threads')
 gstreamer = dependency('gstreamer-1.0')
